@@ -12,12 +12,12 @@ const SearchPage = () => {
         setLoading(true);
 
         try {
-            const response = await fetch(`http://localhost:8080/api/jobs?title=${encodeURIComponent(jobTitle)}&page=0&size=1`);
+            const response = await fetch(`https://job-board-backend-production.up.railway.app/api/jobs?title=${encodeURIComponent(jobTitle)}&page=0&size=1`);
             const data = await response.json();
 
             if (data.length === 0) {
                 console.log("⚠️ No jobs found. Scraping...");
-                await fetch(`http://localhost:8080/api/jobs/scrape?title=${encodeURIComponent(jobTitle)}`);
+                await fetch(`https://job-board-backend-production.up.railway.app/api/jobs/scrape?title=${encodeURIComponent(jobTitle)}`);
             }
 
             navigate(`/results?title=${encodeURIComponent(jobTitle)}`);
