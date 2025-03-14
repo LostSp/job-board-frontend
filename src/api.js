@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8080/api/jobs";  
+const API_URL = "https://job-board-backend-production.up.railway.app/api/jobs";  
 
 export const fetchJobs = async (keyword, location = "", experience = "") => {
   try {
